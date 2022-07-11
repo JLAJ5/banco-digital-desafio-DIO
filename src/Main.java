@@ -10,13 +10,16 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		new TelaOpcoes(
-			new ArrayList<Cliente>(),
-			new ArrayList<Conta>(),
-			sc
-		).imprimirTela();
-
-		sc.close();
+		try {
+			new TelaOpcoes(
+				new ArrayList<Cliente>(),
+				new ArrayList<Conta>(),
+				sc
+			).imprimirTela();
+		}
+		finally {
+			sc.close();
+		}
 	}
 
 }
