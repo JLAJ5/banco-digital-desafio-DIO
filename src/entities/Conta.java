@@ -2,7 +2,7 @@ package entities;
 
 import entities.Exceptions.DomainException;
 
-public abstract class Conta implements IConta {
+public abstract class Conta {
 	
 	private static final int AGENCIA_PADRAO = 1;
 	private static int SEQUENCIAL = 1;
@@ -18,7 +18,6 @@ public abstract class Conta implements IConta {
 		this.cliente = cliente;
 	}
 
-	@Override
 	public void sacar(double valor) {
 		if(valor > this.saldo) {
 			throw new DomainException("O valor a ser sacado é maior que o saldo disponível.");
@@ -26,13 +25,11 @@ public abstract class Conta implements IConta {
 		saldo -= valor;
 	}
 
-	@Override
 	public void depositar(double valor) {
 		saldo += valor;
 	}
 
-	@Override
-	public void transferir(double valor, IConta contaDestino) {
+	public void transferir(double valor, Conta contaDestino) {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
 	}
@@ -49,10 +46,11 @@ public abstract class Conta implements IConta {
 		return saldo;
 	}
 
-	protected void imprimirInfosComuns() {
+	public void imprimirExtrato() {
 		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
 		System.out.println(String.format("Agencia: %d", this.agencia));
 		System.out.println(String.format("Numero: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
 	}
+
 }
