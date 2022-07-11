@@ -5,10 +5,10 @@ import entities.Exceptions.DomainException;
 public class ContaFactory {
     
     public Conta getInstance(String tipoDeConta, Cliente cliente) throws DomainException {
-        if(tipoDeConta == "Corrente") {
+        if(tipoDeConta.equals("Corrente")) {
             return new ContaCorrente(cliente);
         }
-        else if(tipoDeConta == "Poupança") {
+        else if(tipoDeConta.equals("Poupança")) {
             return new ContaPoupanca(cliente);
         }
 

@@ -4,7 +4,7 @@ public class Cliente {
 
 	private static int contatorDeID = 1;
 
-	private Number id;
+	private Integer id;
 	private String nome;
 
 	public Cliente() {
@@ -17,11 +17,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Number getId() {
-		return id;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}	
 
