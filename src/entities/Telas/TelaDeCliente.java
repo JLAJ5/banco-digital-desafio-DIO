@@ -16,7 +16,7 @@ public class TelaDeCliente extends Tela {
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na etapa de criação de cadastro de clientes.");
+        super.imprimirCabecalho("Você está na tela de criação de cadastro de clientes.");
     }
 
     @Override

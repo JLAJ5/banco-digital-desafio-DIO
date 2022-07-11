@@ -21,7 +21,7 @@ public class TelaDeConta extends Tela {
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na etapa de criação de contas.");
+        super.imprimirCabecalho("Você está na tela de criação de contas.");
     }
 
     @Override
