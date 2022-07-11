@@ -18,7 +18,7 @@ public abstract class Conta {
 		this.cliente = cliente;
 	}
 
-	public void sacar(double valor) {
+	public void sacar(double valor) throws DomainException {
 		if(valor > this.saldo) {
 			throw new DomainException("O valor a ser sacado é maior que o saldo disponível.");
 		}
@@ -29,7 +29,7 @@ public abstract class Conta {
 		saldo += valor;
 	}
 
-	public void transferir(double valor, Conta contaDestino) {
+	public void transferir(double valor, Conta contaDestino) throws DomainException {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
 	}

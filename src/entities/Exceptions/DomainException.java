@@ -1,6 +1,6 @@
 package entities.Exceptions;
 
-public class DomainException extends RuntimeException {
+public class DomainException extends Exception {
     
     public DomainException(String msg) {
         super(msg);
