@@ -11,6 +11,8 @@ import entities.Exceptions.DomainException;
 
 public class Main {
 
+	private static List<Cliente> clientes = new ArrayList<>();
+
 	public static void main(String[] args) {
 		Cliente venilton = new Cliente();
 		venilton.setNome("Venilton");
@@ -32,22 +34,29 @@ public class Main {
 	}
 
 	public static List<Cliente> obterClientes(Scanner sc) {
-		List<Cliente> clientes = new ArrayList<>();
+		Main.limparConsole();
+		System.out.println("Você está na etapa de cadastro de clientes.\n");
 
-		System.out.println("\n\nVocê está na etapa de cadastro de clientes.\n\n");
 		char cadastrarOutroCliente = 'S';
 		while(cadastrarOutroCliente == 'S') {
 			System.out.print("Qual o nome do cliente? ");
 			Cliente novoCliente = new Cliente(sc.nextLine());
-			System.out.println("Dados do novo cliente: " + novoCliente);
-			clientes.add(novoCliente);
 
-			System.out.print("Deseja cadastrar outro cliente (S/N)? ");
+			System.out.println("Dados do novo cliente: " + novoCliente);
+			Main.clientes.add(novoCliente);
+
+			System.out.print("\n\nDeseja cadastrar outro cliente (S/N)? ");
 			cadastrarOutroCliente = sc.nextLine().charAt(0);
-			System.out.println();
+			Main.limparConsole();
 		}
 
 		return clientes;
+	}
+
+	private static void limparConsole() {
+		for(int i = 0; i < 1000; i++) {
+			System.out.println("\b") ;
+		}
 	}
 
 }
