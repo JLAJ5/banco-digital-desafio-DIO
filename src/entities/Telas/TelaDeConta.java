@@ -21,12 +21,13 @@ public class TelaDeConta extends Tela {
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na tela de criação de contas.");
+        super.imprimirCabecalho("Você está na tela de criação de contas.\nPara sair, digite \"Cancelar\" em qualquer momento.\n\n");
     }
 
     @Override
-    public void obterDados() {
+    public void imprimirTela() {
 		this.imprimirCabecalho();
+		Scanner sc = new Scanner(System.in);
         ContaFactory cf = new ContaFactory();
 
 		try {
@@ -71,6 +72,9 @@ public class TelaDeConta extends Tela {
 			}
 		}
 		catch(CancelarAcaoException e) { }
+		finally {
+			sc.close();
+		}
     }
     
 }

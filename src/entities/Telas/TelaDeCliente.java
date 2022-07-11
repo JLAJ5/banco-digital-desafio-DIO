@@ -9,21 +9,24 @@ import java.util.Scanner;
 public class TelaDeCliente extends Tela {
 
 	private List<Cliente> clientes;
+	private Scanner sc;
 
 	public TelaDeCliente(List<Cliente> clientes, Scanner sc) {
 		super(sc);
 		this.clientes = clientes;
+		this.sc = sc;
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na tela de criação de cadastro de clientes.");
+        super.imprimirCabecalho("Você está na tela de cadastro de clientes.\nPara sair, digite \"Cancelar\" em qualquer momento.\n\n");
     }
 
-    @Override
-    public void obterDados() {
+    public void imprimirTela() {
 		this.imprimirCabecalho();
+		
 		try {
 			char cadastrarOutroCliente = 'S';
+			
 			while(cadastrarOutroCliente == 'S') {
 				String inputUsuario = "";
 	

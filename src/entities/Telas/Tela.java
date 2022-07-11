@@ -15,16 +15,15 @@ public abstract class Tela {
     protected void imprimirCabecalho(String cabecalho) {
         this.limparConsole();
         System.out.println(cabecalho);
-        System.out.println("Para sair, digite \"Cancelar\" em qualquer momento.\n\n");
     }
+
+    public abstract void imprimirTela();
 
     protected void limparConsole() {
 		for(int i = 0; i < 1000; i++) {
 			System.out.println("\b") ;
 		}
     }
-
-    public abstract void obterDados();
 
     protected final void throwSeCancelou(String userInput) throws CancelarAcaoException {
         if(userInput.toLowerCase().equals("cancelar")) {

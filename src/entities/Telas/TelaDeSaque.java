@@ -17,12 +17,13 @@ public class TelaDeSaque extends Tela {
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na tela de saque.");
+        super.imprimirCabecalho("Você está na tela de saque.\nPara sair, digite \"Cancelar\" em qualquer momento.\n\n");
     }
 
     @Override
-    public void obterDados() {
+    public void imprimirTela() {
 		this.imprimirCabecalho();
+		Scanner sc = new Scanner(System.in);
 
 		try {
 			char realizarOutroSaque = 'S';
@@ -51,7 +52,7 @@ public class TelaDeSaque extends Tela {
                 try {
                     inputUsuario = sc.nextLine();
                     this.throwSeCancelou(inputUsuario);
-                    conta.sacar(sc.nextDouble());
+                    conta.sacar(Double.parseDouble(inputUsuario));
                 }
                 catch(DomainException e) {
 					this.imprimirCabecalho();
@@ -68,6 +69,9 @@ public class TelaDeSaque extends Tela {
 			}
 		}
 		catch(CancelarAcaoException e) { }
+		finally {
+			sc.close();
+		}
     }
     
 }
