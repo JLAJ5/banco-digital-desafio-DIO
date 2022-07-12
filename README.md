@@ -1,17 +1,16 @@
 # Banco digital desafio DIO
-
 Este repositório foi criado para o desafio da DIO, onde foi criado um sistema de banco digital em Java e foi solicitada a implementação de melhorias neste sistema. Não foram descritas quais melhorias deveriam ser implementadas, ficando a merce da criatividade dos alunos.
 
 ## O que é o projeto
-
 É uma aplicação console escrita em Java, que simula o funcionamento de um banco digital, onde o sistema armazena dados de clientes e contas, permitindo ações de saque, deposito e transferência.
 
 ## Dependências 
-
 Foi utilizada a implementação "OpenJDK" na versão 11 (sendo 11 a versão do Java, do runtime environment e da máquina virtual).
 
-## Alterações
+## Como executar essa aplicação?
+Clone o repositório e abra o projeto no seu editor de texto ou IDE de preferência, e execute o projeto tendo a classe "Main" como ponto de entrada
 
+## Alterações
 1. **Criação do pacote "Entities**: Todas as classes, com exceção da Main, foram inseridas dentro de um pacote denominado "Entities". Isso foi feito para melhorar a organização do código, categorizando as classes por tipos.
 2. **Criação do pacote "Entities.Exceptions"**: Devido a implementação de regras de negócio, foi necessária a criação de exceções personalizadas, que são alocadas dentro do pacote "Entities.Exceptions". Essas exceções customizadas são: DomainException (Erro dem uma regra de negócio) e CancelarAcaoException (Quando o usuário cancela uma ação em uma "tela" - mais explicações a frente - da aplicação).
 3. **Remoção da interface "IConta"**: Essa interface foi criada durante o desafio apenas a título de exemplo, ela não trazia nenhum benefócio para o código.
