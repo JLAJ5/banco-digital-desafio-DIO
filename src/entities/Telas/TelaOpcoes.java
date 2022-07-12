@@ -39,8 +39,6 @@ public class TelaOpcoes extends Tela {
                 this.imprimirCabecalho();
 
                 switch(Byte.parseByte(this.sc.nextLine())) {
-                    case 0: 
-                        throw new CancelarAcaoException();
                     case 1:
                         new TelaDeCliente(this.clientes, this.sc).imprimirTela();
                         break;
@@ -59,12 +57,17 @@ public class TelaOpcoes extends Tela {
                     case 6:
                         new TelaDeSaque(this.contas, this.sc).imprimirTela();
                         break;
+                    case 7:
+                        new TelaDeTransferencia(this.contas, this.sc).imprimirTela();
+                        break;
+                    default:
+                        throw new CancelarAcaoException();
                 }
             }
         }
 		catch(CancelarAcaoException e) {
             this.limparConsole();
-            System.out.println("Obrigado pela preferência! Volte-sempre!");
+            System.out.println("Obrigado pela preferência! Volte sempre!");
         }
     }
     
