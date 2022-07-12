@@ -53,8 +53,12 @@ public class TelaOpcoes extends Tela {
                     case 4:
                         new TelaDeListagemDeContas(this.contas, this.sc).imprimirTela();;
                         break;
+                    case 5:
+                        new TelaDeDeposito(this.contas, this.sc).imprimirTela();
+                        break;
                     case 6:
-                        new TelaDeSaque(this.contas, this.sc);
+                        new TelaDeSaque(this.contas, this.sc).imprimirTela();
+                        break;
                 }
             }
         }

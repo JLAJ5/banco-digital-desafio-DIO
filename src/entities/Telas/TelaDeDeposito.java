@@ -7,17 +7,17 @@ import entities.Conta;
 import entities.Exceptions.CancelarAcaoException;
 import entities.Exceptions.DomainException;
 
-public class TelaDeSaque extends Tela {
+public class TelaDeDeposito extends Tela {
 
 	private List<Conta> contas;
 
-	public TelaDeSaque(List<Conta> contas, Scanner sc) {
+	public TelaDeDeposito(List<Conta> contas, Scanner sc) {
 		super(sc);
 		this.contas = contas;
 	}
 
     private void imprimirCabecalho() {
-        super.imprimirCabecalho("Você está na tela de saque.\nPara sair, digite \"Cancelar\" em qualquer momento.\n\n");
+        super.imprimirCabecalho("Você está na tela de depósito.\nPara sair, digite \"Cancelar\" em qualquer momento.\n\n");
     }
 
     @Override
@@ -25,8 +25,8 @@ public class TelaDeSaque extends Tela {
 		this.imprimirCabecalho();
 
 		try {
-			char realizarOutroSaque = 'S';
-			while(realizarOutroSaque == 'S') {
+			char realizarOutroDeposito = 'S';
+			while(realizarOutroDeposito == 'S') {
 				String inputUsuario = "";
 	
                 System.out.print("Qual o número da conta? ");
@@ -46,23 +46,17 @@ public class TelaDeSaque extends Tela {
 					continue;
                 }
 
-                System.out.printf("\n\nSeu saldo atual: R$ %.2f\n\n", conta.getSaldo());
-                System.out.print("Quanto você deseja sacar? R$ ");
-                try {
-                    inputUsuario = this.sc.nextLine();
-                    this.throwSeCancelou(inputUsuario);
-                    conta.sacar(Double.parseDouble(inputUsuario));
-                }
-                catch(DomainException e) {
-					this.imprimirCabecalho();
-					System.out.println("***Ocorreu um erro durante a operação: " + e.getMessage() + "\n\n");
-					continue;
-                }
-    
-                System.out.print("\n\nDeseja realizar outro saque (S/N)? ");
-                realizarOutroSaque = this.sc.nextLine().charAt(0);
+                System.out.print("Quanto você deseja depositar? R$ ");
+                inputUsuario = this.sc.nextLine();
+                this.throwSeCancelou(inputUsuario);
+                conta.depositar(Double.parseDouble(inputUsuario));
+                System.out.printf("\n\nSeu saldo atual: R$ %.2f\n", conta.getSaldo());
 
-				if(realizarOutroSaque == 'S') {
+    
+                System.out.print("\n\nDeseja realizar outro deposito (S/N)? ");
+                realizarOutroDeposito = this.sc.nextLine().charAt(0);
+
+				if(realizarOutroDeposito == 'S') {
 					this.imprimirCabecalho();
 				}
 			}
