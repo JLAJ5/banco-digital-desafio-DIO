@@ -9,12 +9,10 @@ import java.util.Scanner;
 public class TelaDeCliente extends Tela {
 
 	private List<Cliente> clientes;
-	private Scanner sc;
 
 	public TelaDeCliente(List<Cliente> clientes, Scanner sc) {
 		super(sc);
 		this.clientes = clientes;
-		this.sc = sc;
 	}
 
     private void imprimirCabecalho() {

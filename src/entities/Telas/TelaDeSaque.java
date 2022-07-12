@@ -23,7 +23,6 @@ public class TelaDeSaque extends Tela {
     @Override
     public void imprimirTela() {
 		this.imprimirCabecalho();
-		Scanner sc = new Scanner(System.in);
 
 		try {
 			char realizarOutroSaque = 'S';
@@ -31,12 +30,12 @@ public class TelaDeSaque extends Tela {
 				String inputUsuario = "";
 	
                 System.out.print("Qual o número da conta? ");
-                inputUsuario = sc.nextLine();
+                inputUsuario = this.sc.nextLine();
 				this.throwSeCancelou(inputUsuario);
                 int numeroConta = Integer.parseInt(inputUsuario);
         
                 System.out.println("Qual o número da agência? ");
-                inputUsuario = sc.nextLine();
+                inputUsuario = this.sc.nextLine();
 				this.throwSeCancelou(inputUsuario);
                 int numeroAgencia = Integer.parseInt(inputUsuario);
 
@@ -50,7 +49,7 @@ public class TelaDeSaque extends Tela {
                 System.out.printf("\n\nSeu saldo atual: R$ %.2f\n\n", conta.getSaldo());
                 System.out.print("Quanto você deseja sacar? R$ ");
                 try {
-                    inputUsuario = sc.nextLine();
+                    inputUsuario = this.sc.nextLine();
                     this.throwSeCancelou(inputUsuario);
                     conta.sacar(Double.parseDouble(inputUsuario));
                 }
@@ -61,7 +60,7 @@ public class TelaDeSaque extends Tela {
                 }
     
                 System.out.print("\n\nDeseja realizar outro saque (S/N)? ");
-                realizarOutroSaque = sc.nextLine().charAt(0);
+                realizarOutroSaque = this.sc.nextLine().charAt(0);
 
 				if(realizarOutroSaque == 'S') {
 					this.imprimirCabecalho();
@@ -69,9 +68,6 @@ public class TelaDeSaque extends Tela {
 			}
 		}
 		catch(CancelarAcaoException e) { }
-		finally {
-			sc.close();
-		}
     }
     
 }

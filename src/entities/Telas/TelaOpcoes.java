@@ -42,16 +42,19 @@ public class TelaOpcoes extends Tela {
                     case 0: 
                         throw new CancelarAcaoException();
                     case 1:
-                        new TelaDeCliente(clientes, this.sc).imprimirTela();
+                        new TelaDeCliente(this.clientes, this.sc).imprimirTela();
                         break;
                     case 2:
-                        new TelaDeListagemDeClientes(clientes, this.sc).imprimirTela();;
+                        new TelaDeListagemDeClientes(this.clientes, this.sc).imprimirTela();;
                         break;
                     case 3:
-                        new TelaDeConta(clientes, contas, this.sc).imprimirTela();
+                        new TelaDeConta(this.clientes, this.contas, this.sc).imprimirTela();
+                        break;
+                    case 4:
+                        new TelaDeListagemDeContas(this.contas, this.sc).imprimirTela();;
                         break;
                     case 6:
-                        new TelaDeSaque(contas, this.sc);
+                        new TelaDeSaque(this.contas, this.sc);
                 }
             }
         }

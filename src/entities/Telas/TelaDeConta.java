@@ -27,7 +27,6 @@ public class TelaDeConta extends Tela {
     @Override
     public void imprimirTela() {
 		this.imprimirCabecalho();
-		Scanner sc = new Scanner(System.in);
         ContaFactory cf = new ContaFactory();
 
 		try {
@@ -36,7 +35,7 @@ public class TelaDeConta extends Tela {
 				String inputUsuario = "";
 	
 				System.out.print("Qual o ID do cliente? ");
-				inputUsuario = sc.nextLine();
+				inputUsuario = this.sc.nextLine();
 				this.throwSeCancelou(inputUsuario);
 
 				int idUsuario = Integer.parseInt(inputUsuario);
@@ -50,7 +49,7 @@ public class TelaDeConta extends Tela {
 
 				try {
 					System.out.print("Qual o tipo de conta (Corrente/Poupanca)? ");
-					inputUsuario = sc.nextLine();
+					inputUsuario = this.sc.nextLine();
 					this.throwSeCancelou(inputUsuario);
 
 					Conta novaConta = cf.getInstance(inputUsuario, cliente);
@@ -64,7 +63,7 @@ public class TelaDeConta extends Tela {
 				}
 
 				System.out.print("\n\nDeseja abrir outra conta (S/N)? ");
-				cadastrarOutraConta = sc.nextLine().charAt(0);
+				cadastrarOutraConta = this.sc.nextLine().charAt(0);
 
 				if(cadastrarOutraConta == 'S') {
 					this.imprimirCabecalho();
@@ -72,9 +71,6 @@ public class TelaDeConta extends Tela {
 			}
 		}
 		catch(CancelarAcaoException e) { }
-		finally {
-			sc.close();
-		}
     }
     
 }

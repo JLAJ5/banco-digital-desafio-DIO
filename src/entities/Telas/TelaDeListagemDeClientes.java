@@ -8,12 +8,10 @@ import entities.Cliente;
 public class TelaDeListagemDeClientes extends Tela {
 
 	private List<Cliente> clientes;
-	private Scanner sc;
 
 	public TelaDeListagemDeClientes(List<Cliente> clientes, Scanner sc) {
 		super(sc);
 		this.clientes = clientes;
-		this.sc = sc;
 	}
 
     private void imprimirCabecalho() {
@@ -26,7 +24,7 @@ public class TelaDeListagemDeClientes extends Tela {
 		for(Cliente c : this.clientes) {
 			System.out.println(c);
 		}
-		System.out.println("\n\n");
+		
         sc.nextLine();
     }
     
