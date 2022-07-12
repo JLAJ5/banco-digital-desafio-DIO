@@ -11,7 +11,6 @@ public class TelaOpcoes extends Tela {
 
 	private List<Cliente> clientes;
 	private List<Conta> contas;
-    private Scanner sc;
 
 	public TelaOpcoes(List<Cliente> clientes, List<Conta> contas, Scanner sc) {
 		super(sc);
@@ -39,17 +38,20 @@ public class TelaOpcoes extends Tela {
             while(true) {
                 this.imprimirCabecalho();
 
-                switch(Byte.parseByte(sc.nextLine())) {
+                switch(Byte.parseByte(this.sc.nextLine())) {
                     case 0: 
                         throw new CancelarAcaoException();
                     case 1:
-                        new TelaDeCliente(clientes, sc).imprimirTela();
+                        new TelaDeCliente(clientes, this.sc).imprimirTela();
+                        break;
+                    case 2:
+                        new TelaDeListagemDeClientes(clientes, this.sc).imprimirTela();;
                         break;
                     case 3:
-                        new TelaDeConta(clientes, contas, sc).imprimirTela();
+                        new TelaDeConta(clientes, contas, this.sc).imprimirTela();
                         break;
                     case 6:
-                        new TelaDeSaque(contas, sc);
+                        new TelaDeSaque(contas, this.sc);
                 }
             }
         }
